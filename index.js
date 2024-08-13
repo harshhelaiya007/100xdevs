@@ -113,8 +113,6 @@ console.log('Running');
 // }
 // syncSleep();
 
-
-
 // Async and Sync
 
 // WEEK 1 JS Foundation
