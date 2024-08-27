@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="renderPersons()">
+        Get Persons Data
+    </button>
+
+    <ul id="renderPerson"></ul>
+</body>
+
+<script>
+
+    async function renderPersons() {
+        const response = await fetch("https://fakerapi.it/api/v1/persons");
+        const data = await response.json()
+        data.data.forEach(function(item) {
+            document.getElementById('renderPerson').innerHTML += htmlFn(item);
+        })
+    }
+
+    function htmlFn(data) {
+        return `<li>${data.firstname} ${data.lastname}</li>`
+    }
+
+</script>
+
+</html>
