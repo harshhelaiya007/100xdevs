@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <div class="input-wrapper">
+            <div class="input-div">
+                <label for="">Username</label>
+                <input type="text" id="username" class="form-input">
+            </div>
+            <div class="input-div">
+                <label for="">Password</label>
+                <input type="text" id="password" class="form-input">
+            </div>
+        </div>
+    </form>
+    <button onclick="signIn()">Login</button>
+</body>
+<script>
+    async function signIn() {
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        // console.log(username, password);
+
+        try {
+            const response = await fetch("http://localhost:3000/signin", {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            });
+
+            // Handle the response
+            const data = await response.json();
+            console.log(data);
+            localStorage.setItem('jsonwebtoken',data.token)
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>
+
+</html>
