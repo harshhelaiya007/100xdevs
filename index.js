@@ -15,11 +15,57 @@
 // const jwtDecode = jwt.decode(output,'1234');
 // console.log(jwtDecode);
 
-let a;
-try {
-    console.log(a.length);
-    console.log('sdkfasfd');
-} catch (error) {
-    console.log(error);
-    console.log('hi rhere');    
+// let a;
+// try {
+//     console.log(a.length);
+//     console.log('sdkfasfd');
+// } catch (error) {
+//     console.log(error);
+//     console.log('hi rhere');    
+// }
+
+const express = require("express");
+const app = express();
+
+function idOldEnough(age) {
+    if (age >= 14) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
+function isOldEnoughMiddleware(req, res, next) {
+    let isAge = req.query.age;
+
+    if (isAge >= 14) {
+        next();
+    } else {
+        res.status(411).json({
+            msg: "Sorry your age is below 14! Only 14+ age allowed"
+        })
+    }
+}
+
+function isTicketMiddleware(req, res, next) {
+    let ticket = req.query.ticket;
+
+    if (ticket.toLowerCase() == "free") {
+        next();
+    } else {
+        res.status(411).json({
+            msg: "Access Denied!"
+        })
+    }
+
+}
+
+app.use(isOldEnoughMiddleware, isTicketMiddleware);
+
+app.get("/ride1", isOldEnoughMiddleware, function (req, res) {
+    res.status(200).json({
+        msg: "You rode first ride!"
+    })
+})
+
+app.listen(3000);
