@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let state = [
+            {
+                id: 1,
+                title: "Go to gym",
+                description: "go to gym 7-9 pm"
+            },
+            {
+                id: 2,
+                title: "Go to cycle",
+                description: "go to cycle 7-9 pm"
+            }
+        ]
+
+        document.addEventListener('DOMContentLoaded', function() {
+            state.forEach(function(stateItem) {
+                addTodo(stateItem)
+            })
+        })
+
+
+        function addTodo(stateItem) {
+            // let title = document.getElementById('title').value
+            // let description = document.getElementById('description').value
+
+            let title = stateItem.title
+            let description = stateItem.description
+
+            let parentDiv = document.createElement('div');
+            let titleDiv = document.createElement('div');
+            let descriptionDiv = document.createElement('div');
+            let buttonEle = document.createElement('button');
+            titleDiv.innerHTML = title;
+            descriptionDiv.innerHTML = description;
+            buttonEle.innerHTML = 'Mark as done'
+            parentDiv.appendChild(titleDiv)
+            parentDiv.appendChild(descriptionDiv)
+            parentDiv.appendChild(buttonEle)
+            document.getElementById('parent').appendChild(parentDiv)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="parent">
+        <input type="text" placeholder="title" id="title">
+        <br>
+        <br>
+        <input type="text" placeholder="description" id="description">
+        <br>
+        <br>
+        <!-- <button onclick="addTodo()">Add todo</button> -->
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>
