@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://harshhelaiya5:LkllKsfKg9Nddrdz@cluster0.cngehgz.mongodb.net/curd');
+mongoose.connect('dummy');
 
 const UserSchema = new mongoose.Schema({
     username: String,
