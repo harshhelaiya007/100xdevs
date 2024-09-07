@@ -13,3 +13,22 @@
     padding: 10px 9pt;
     width: 100%
 }
+
+.input-wrapper .button {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 3pc;
+    justify-content: center;
+    line-height: 1.16pc;
+    max-width: 207px;
+    outline: none;
+    padding: 0 24px;
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 12px;
+    /* border: none; */
+    background: white;
+}
