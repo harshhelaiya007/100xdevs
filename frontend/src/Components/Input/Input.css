@@ -1,0 +1,15 @@
+.input-div {}
+
+.input-div input {
+    background: #fff;
+    border: 1px solid #dedcdd;
+    border-radius: 8px;
+    color: #221f20;
+    font-size: .875rem;
+    font-weight: 500;
+    height: 44px;
+    letter-spacing: -.2px;
+    line-height: 16.24px;
+    padding: 10px 9pt;
+    width: 100%
+}
