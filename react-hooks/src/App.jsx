@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 let id = 4;
 function App() {
@@ -17,24 +16,37 @@ function App() {
     {
       id: 3,
       task: "go to eat",
-      desc: "go to eat today",
-    }
+      desc: "go tmemoo eat today",
+    },
   ]);
 
+
+  useEffect(() => {
+    console.log('111');
+    return () => {
+      console.log('kdkdk');
+    };
+  }, []);
+
   return (
+    // <div>
+    //   <Header />
+    //   <button onClick={() => {
+    //     setTodo([...todo, {
+    //       id: id++,
+    //       title: Math.random() * 100,
+    //       desc: Math.random() * 1000
+    //     }])
+    //   }}>Add a todo</button>
+    //   {todo.map((item) => {
+    //     console.log(item.id);
+    //     return <Todo key={item.id} task={item.task} desc={item.desc}/>
+    //   })}
+    // </div>
     <div>
-      <Header />
-      <button onClick={() => {
-        setTodo([...todo, {
-          id: id++,
-          title: Math.random() * 100,
-          desc: Math.random() * 1000
-        }])
-      }}>Add a todo</button>
-      {todo.map((item) => {
-        console.log(item.id);
-        return <Todo key={item.id} task={item.task} desc={item.desc}/>
-      })}
+      <CardWrapper>
+        <TextComponent />
+      </CardWrapper>
     </div>
   );
 }
@@ -60,6 +72,18 @@ const Todo = function ({ task, desc }) {
     <div>
       <h1>{task}</h1>
       <p>{desc}</p>
+    </div>
+  );
+};
+
+function TextComponent() {
+  return <div>Text</div>;
+}
+
+function CardWrapper({ children }) {
+  return (
+    <div className="cardWrapper" style={{ border: "2px solid black" }}>
+      {children}
     </div>
   );
 }
