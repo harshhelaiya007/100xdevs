@@ -1,12 +1,13 @@
 import React from "react";
 import "./Menu.scss";
 
-function Menu({ menuList }) {
+function Menu({ menuList = [], footerMenu = false }) {
   return (
-    <ul>
-      {menuList.map((menu) => {
-        return <li>{menu}</li>;
-      })}
+    <ul className={footerMenu ? "footer-menu" : ""}>
+      {menuList &&
+        menuList.map((menu, index) => {
+          return <li key={index + "menuList"}>{menu}</li>;
+        })}
     </ul>
   );
 }
