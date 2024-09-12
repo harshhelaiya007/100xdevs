@@ -1,9 +1,9 @@
-import BusinessCard from "./components/BusinessCard";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <BusinessCard cardName={"Harsh Helaiya"} cardDescription={"Short Description to put here!"}/>
+      <Header />
     </>
   );
 }
