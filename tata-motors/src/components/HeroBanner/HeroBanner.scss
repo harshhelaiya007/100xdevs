@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 
     .banner-title {
       font-family: "Inter";
@@ -12,6 +13,11 @@
       line-height: 133.95px;
       text-align: center;
       color: #ffffff80;
+    }
+    .carImage-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     img {
       width: 100%;
@@ -25,6 +31,51 @@
       gap: 25px;
       position: absolute;
       bottom: 45px;
+    }
+    .radio-button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 17px;
+      .radioWrapper {
+        position: relative;
+        display: inline-block; // Ensures wrapper is only as wide as its content
+
+        input {
+          width: 33px;
+          height: 33px;
+          position: absolute; // Remove it from the document flow
+          opacity: 0; // Hide the actual radio button
+          cursor: pointer;
+          z-index: 1;
+
+          &:checked + .checkBox {
+            border: 1px solid #f7f8f8;
+            &::after {
+              content: "";
+              width: 15px; // Adjust size as needed
+              height: 15px; // Adjust size as needed
+              border-radius: 50%;
+              background-color: #f7f8f8; // Dot color
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+
+        .checkBox {
+          display: block;
+          width: 33px;
+          height: 33px;
+          cursor: pointer;
+          border-radius: 50%;
+          position: relative; // For the positioning of the pseudo-element
+          box-sizing: border-box; // Ensures border and padding are included in the total width and height
+        }
+      }
     }
   }
 }
