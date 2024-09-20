@@ -6,7 +6,11 @@ function Menu({ menuList = [], footerMenu = false }) {
     <ul className={footerMenu ? "footer-menu" : ""}>
       {menuList &&
         menuList.map((menu, index) => {
-          return <li key={index + "menuList"}>{menu}</li>;
+          return (
+            <a href="#" key={index + "menuList"}>
+              <li>{menu}</li>
+            </a>
+          );
         })}
     </ul>
   );
